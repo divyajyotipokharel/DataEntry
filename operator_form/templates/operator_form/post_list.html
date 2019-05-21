@@ -1,0 +1,96 @@
+{% extends 'operator_form/base.html' %}
+
+{% block content %}
+
+<section class="mt-5">
+    <div class="container pt-5">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mb-3">
+                <h3 class="text-white display-5">List of Data Entry</h3>
+            </div>
+        </div>
+    </div>
+    <!-- end of title -->
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-sm-8 bg-frame">
+            <p>This is all contents in  not draft list</p>
+
+            <!-- view the data in table form -->
+            <div class="table-responsive table-hover col-lg-11 mx-auto">
+                    <table class="table bg-white">
+                        <thead>
+                            <tr>
+                                <th scope="col">Author</th>
+                                <th scope="col">File No</th>
+                                <th scope="col">Record No</th>
+                                <th scope="col">Entry Date</th>
+                                <th scope="col">Ref No</th>
+                                <th scope="col">Invoice No</th>
+                                <th scope="col">Courier Name</th>
+                                <th scope="col">Con No</th>
+                                <th scope="col">Dispatch Date</th>
+                                <th scope="col">Dispatch By</th>
+                                <th scope="col">Sales Date</th>
+                                <th scope="col">Sales Time</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Mail Address</th>
+                                <th scope="col">Agent Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Zip Code</th>
+                                <th scope="col">Customer Phone</th>
+                                <th scope="col">Credit Card Type</th>
+                                <th scope="col">Credit Card Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in post_list %}
+                            <tr>
+                                <td>{{ post.author }}</td>
+                                <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.file_no }}</a></td>
+                                <td>{{ post.record_no }}</td>
+                                <td>{{ post.entry_date }}</td>
+                                <td>{{ post.ref_no }}</td>
+                                <td>{{ post.invoice_no }}</td>
+                                <td>{{ post.courier_name }}</td>
+                                <td>{{ post.con_no }}</td>
+                                <td>{{ post.dispatch_date }}</td>
+                                <td>{{ post.dispatch_by }}</td>
+                                <td>{{ post.sales_date }}</td>
+                                <td>{{ post.sales_time }}</td>
+                                <td>{{ post.customer_name }}</td>
+                                <td>{{ post.mail_address }}</td>
+                                <td>{{ post.agent_name }}</td>
+                                <td>{{ post.address }}</td>
+                                <td>{{ post.city }}</td>
+                                <td>{{ post.state }}</td>
+                                <td>{{ post.zip_code }}</td>
+                                <td>{{ post.customer_phone }}</td>
+                                <td>{{ post.credit_card_type }}</td>
+                                <td>{{ post.credit_card_number }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+            <!-- end of table -->
+
+            <!-- post not in table -->
+            <!-- post in view only  -->
+            <!-- {% for post in post_list %}
+            <div>
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.record_no }}</a></h1>
+                <div>
+                    <p>Published on: {{post.published_date|date:"Y-m-d h:i:s A"}}</p>
+                </div>
+            </div>
+            {% endfor %} -->
+            <!-- end of data view -->
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

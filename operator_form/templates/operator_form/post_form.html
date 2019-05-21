@@ -1,0 +1,109 @@
+{% extends 'operator_form/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="mt-5">
+    <div class="container pt-5">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mb-3">
+                <h3 class="text-white display-5">New Data Entry</h3>
+            </div>
+        </div>
+    </div>
+    <!-- end of title -->
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-sm-8 bg-frame">
+            <form method="POST" class="mt-3 pt-3 mb-5 pb-5">
+                {% csrf_token %}
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.file_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.record_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.entry_date|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.ref_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.invoice_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.courier_name|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.con_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.dispatch_date|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.dispatch_by|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.sales_date|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.sales_time|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.customer_name|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.mail_address|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.agent_name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.address|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.city|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.state|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.zip_code|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row mx-auto px-auto pb-3">
+                    <div class="form-group col-md-3 mb-0 mx-auto ml-0">
+                        {{ form.customer_phone|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.credit_card_type|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3 mb-0 mx-auto">
+                        {{ form.credit_card_number|as_crispy_field }}
+                    </div>
+                </div>
+
+
+                <!-- {{form|crispy}} -->
+                
+                <div class="my-5">
+                    <button type="submit" class="btn btn-primary float-right mr-5" >Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

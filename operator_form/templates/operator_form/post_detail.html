@@ -1,0 +1,38 @@
+{% extends 'operator_form/base.html' %}
+
+{% block content %}
+
+<section class="mt-5">
+    <div class="container pt-5">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mb-3">
+                <h3 class="text-white display-5">Detail of a Data Entry</h3>
+            </div>
+        </div>
+    </div>
+    <!-- end of title -->
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-sm-8 bg-frame">
+            <div class="justify-content-center m-3 p-3">
+                <div class=" pb-3">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-primary">Remove</a>
+                    {% endif %}
+                </div>
+
+                <h1>{{ post.record_no }}</h1>
+                {% if post.published_date %}
+                    <div>
+                        {{ post.published_date }}
+                    </div>
+                {% else %}
+                    <a class="btn btn-info" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
