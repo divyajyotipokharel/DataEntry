@@ -38,20 +38,15 @@
                     </div>                   
                     <div class="mt-4 px-3 pb-2">
                         <h3 class="font-weight-bold">All Users</h3>
-                        {{test_list}}
-                        {% for users in object_list %}
-                        <li class="user">{{ users }}</li>
-                        {% endfor %}
-                        <h1>this is update All {{test}}</h1>
-                        <hr>
+                        
                     </div>
                     {% for users in object_list %}                    
                     <!-- users in row view -->
                     <div class="bg-white round-box pr-4 mt-3">
                         <!-- users details list -->
                             <div class="row justify-content-between pl-4">
-                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><i class="far fa-user-circle fa-3x"></i></div>
-                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a href="{% url 'view_operator_profile'%}?q={{users.id}}">{{users.id}}{{ users.username}}</a></h5></div>
+                                <div class="col-sm-auto py-2 px-1 d-flex align-items-center justify-content-between"><i class="far fa-user-circle fa-3x"></i></div>
+                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a href="{% url 'view_operator_profile'%}?q={{users.id}}">{{users.id}} {{ users.username}}</a></h5></div>
                                 <div class="col-sm-auto p-0 d-flex align-items-center">
                                     <!-- <div class="my-1 mx-0 p-0">
                                         <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">1234</h5></div>

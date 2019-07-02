@@ -4,6 +4,8 @@ from django.db.models import Q
 from django.utils import timezone
 
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from operator_form.models import Post
 
 from django.shortcuts import render, get_object_or_404,redirect
@@ -12,9 +14,12 @@ from django.views.generic import (TemplateView, ListView)
 # Create your views here.
 class Home(TemplateView):
     template_name = 'admin_form/a_login.html'
+    redirect = '/admin_user_profile/'
 
+@method_decorator(login_required, name='dispatch')
 class AdminUserProfile(TemplateView):
     template_name = 'admin_form/a_loggedin.html'
+    login_url = '/login/'
 
     def get_context_data(self, **kwargs):
         context = super(AdminUserProfile, self).get_context_data(**kwargs)
