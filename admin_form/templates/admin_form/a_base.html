@@ -28,26 +28,26 @@
                 <!-- Links -->
                 <div class="collapse navbar-collapse" id="myNav">
                   <!-- check for the user authentication in backend -->
-                    {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
                       <!-- if user us authenticated display below contents -->
                       <!-- Left -->
                       <ul class="navbar-nav text-uppercase text-center ml-5">
-                          <li class="nav-item pull-left my-auto"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
-                          <li class="nav-item pull-left my-auto"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
+                          <li class="nav-item pull-left my-auto"><a class="nav-link text-white" href="#">Home</a></li>
+                          <li class="nav-item pull-left my-auto"><a class="nav-link text-white" href="#">About</a></li>
                       </ul>
                       <!-- Right -->
                       <ul class="navbar-nav text-center ml-auto">
-                          <li class="nav-item pull-right my-auto"><a class="nav-link text-white" href="{% url 'user_profile' %}">Welcome: <span class="font-weight-bold">{{user.username}}</span></a></li>
+                          <li class="nav-item pull-right my-auto"><a class="nav-link text-white" href="{% url 'admin_user_profile' %}">Welcome: <span class="font-weight-bold">{{user.username}}</span></a></li>
                           <li class="nav-item pull-right my-auto"><a class="nav-link text-white" href="{% url 'logout' %}">LogOut</a></li>
                           <li class="nav-item dropdown pull-left my-auto" data-toggle="dropdown">
                               <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">
                                   <span class="my-auto"><i class="ml-3 fas fa-user fa-2x text-white"></i></span>
                               </a>
-                              <!-- <div class="dropdown-menu" role="menu">
+                              <div class="dropdown-menu" role="menu">
                                   <a class="dropdown-item" href="{% url 'logout' %}">Logout <i class="ml-2 fas fa-sign-out-alt fa-1x text-primary"></i></a>
                                   <a class="dropdown-item" href="googel.com">google</a>
                                   <a class="dropdown-item" href="youtube.com">youtube</a>
-                              </div> -->
+                              </div>
                           </li>
                       </ul>
                     {% else %}
@@ -57,7 +57,6 @@
                           <li class="nav-item "><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
                           <li class="nav-item "><a class="nav-link text-white" href="#">Team</a></li>
                           <li class="nav-item "><a class="nav-link text-white" href="#">Contact</a></li>
-                          <li class="nav-item "><a class="nav-link text-white" href="{% url 'admin_home' %}">Administrator</a></li>
                       </ul>
                     {% endif %}
                 </div>
@@ -78,7 +77,6 @@
     <!-- js for form steps -->
     <script src="{% static 'js/jquery.steps.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
 
   </body>
 </html>

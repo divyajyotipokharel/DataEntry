@@ -1,0 +1,11 @@
+{% extends 'operator_form/base.html' %}
+
+{% block content %}
+    <div class="p-5 m-5">
+        <form method="POST">
+            {% csrf_token %}
+            <p class="text-white"> Are you sure want to delete {{ object }}</p>
+            <input type="submit" class="btn btn-danger" value="confirm">
+        </form>    
+    </div>
+{% endblock %}

@@ -6,19 +6,19 @@
     <div class="container pt-5">
         <!-- title -->
         <!-- end of title -->
-        <div class="row text-center">
+        <div class="row text-right">
             <div class="col-lg-12 col-md-12 col-sm-8 bg-frame">
                 <!-- side bar -->
                 <div class="col-lg-2 col-md-2 col-sm-6 float-left mr-3 ">
                     <!-- image side -->
                     <div class="team-member">
                         <img class="mx-auto rounded-circle img-fluid" src="{% load static %}{% static 'images/team/1.jpg' %}" alt=""/>
-                        <h5 class="mt-3">Username</h5>
+                        <h5 class="mt-3 font-weight-bold text-success" >{{user.username}}</h5>
                     </div>
                     <div class="my-3 mb-5 pb-5">
-                        <h5 class="font-weight-bold"><a href="{% url 'post_new' %}" class="text-default">Add Data</a></h5>
-                        <h5 class="font-weight-bold"><a href="{% url 'post_draft_list' %}" class="text-default">Draft Data</a></h5>
-                        <h5 class="font-weight-bold"><a href="{% url 'post_list' %}" class="text-default">Published Data</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="{% url 'post_new' %}" class="text-default">Add Data</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="{% url 'post_draft_list' %}" class="text-default">Draft Data</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="{% url 'post_list' %}" class="text-default">Published Data</a></h5>
                     </div>
                 </div>
                 <!-- end of side bar -->
@@ -29,23 +29,24 @@
                         <div class="nav-wrapper mt-3">
                             <ul class="nav nav-tabs nav-fill flex-column flex-md-row" id="activity-date" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0 active" id="activity-date-1-tab" data-toggle="tab" href="#activity-date-1" role="tab" aria-controls="activity-date-1" aria-selected="true">Day - 1</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0 active" id="activity-date-1-tab" data-toggle="tab" href="#activity-date-1" role="tab" aria-controls="activity-date-1" aria-selected="true">{{day1}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-2-tab" data-toggle="tab" href="#activity-date-2" role="tab" aria-controls="activity-date-2" aria-selected="false">dDay - 2</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-2-tab" data-toggle="tab" href="#activity-date-2" role="tab" aria-controls="activity-date-2" aria-selected="false">{{day2}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-3-tab" data-toggle="tab" href="#activity-date-3" role="tab" aria-controls="activity-date-3" aria-selected="false">Day - 3</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-3-tab" data-toggle="tab" href="#activity-date-3" role="tab" aria-controls="activity-date-3" aria-selected="false">{{day3}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-4-tab" data-toggle="tab" href="#activity-date-4" role="tab" aria-controls="activity-date-4" aria-selected="false">Day - 4</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-4-tab" data-toggle="tab" href="#activity-date-4" role="tab" aria-controls="activity-date-4" aria-selected="false">{{day4}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-5-tab" data-toggle="tab" href="#activity-date-5" role="tab" aria-controls="activity-date-5" aria-selected="false">{{day5}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-6-tab" data-toggle="tab" href="#activity-date-6" role="tab" aria-controls="activity-date-6" aria-selected="false">{{day6}}</a>
                                 </li><li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-5-tab" data-toggle="tab" href="#activity-date-5" role="tab" aria-controls="activity-date-5" aria-selected="false">Day - 5</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-6-tab" data-toggle="tab" href="#activity-date-6" role="tab" aria-controls="activity-date-6" aria-selected="false">Day - 6</a>
-                                </li><li class="nav-item">
-                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-7-tab" data-toggle="tab" href="#activity-date-7" role="tab" aria-controls="activity-date-7" aria-selected="false">Day - 7</a>
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="activity-date-7-tab" data-toggle="tab" href="#activity-date-7" role="tab" aria-controls="activity-date-7" aria-selected="false">{{day7}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,58 +55,44 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="activity-date-1" role="tabpanel" aria-labelledby="activity-date-1-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day1_data}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="tab-pane fade" id="activity-date-2" role="tabpanel" aria-labelledby="date-2-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day2_data}}</span></li>
                                         </ul>
                                     </div>  
                                     <div class="tab-pane fade" id="activity-date-3" role="tabpanel" aria-labelledby="activity-date-3-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day3_data}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="tab-pane fade" id="activity-date-4" role="tabpanel" aria-labelledby="activity-date-4-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day4_data}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="tab-pane fade" id="activity-date-5" role="tabpanel" aria-labelledby="date-5-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day5_data}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="tab-pane fade" id="activity-date-6" role="tabpanel" aria-labelledby="activity-date-6-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day6_data}}</span></li>
                                         </ul>
                                     </div>
                                     <div class="tab-pane fade" id="activity-date-7" role="tabpanel" aria-labelledby="activity-date-7-tab">
                                         <ul class="nav flex-md-row font-weight-bold mt-3">
-                                            <li class="nav-item mx-auto">Added: <span class="text-info">24</span></li>
-                                            <!-- <li class="nav-item mx-auto">Edited: <span class="text-info">24</span></li>
-                                            <li class="nav-item mx-auto">Verified: <span class="text-info">24</span></li> -->
+                                            <li class="nav-item mx-auto">Added: <span class="text-info">{{day7_data}}</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         <!-- </div> -->
                         <div class="mt-3">
-                            <h4 class="font-weight-bold">Total Forms Submitted: <span class="text-info">14</span></h4>
+                            <h4 class="font-weight-bold">Total Forms Submitted: <span class="text-info">{{total_forms}}</span></h4>
                         </div>
                     </div>    
                 </div>

@@ -1,6 +1,28 @@
-{% extends "blog/base.html" %}
+{% extends "operator_form/base.html" %}
 {% block content %}
-<h1>About me</h1>
-<p>Thanks for visiting my blog! Check all this cool stuff about me!</p>
+    <!-- banner -->
+    {% if user.is_authenticated %}
+        <section>
+            <div class="container-fluid pt-5 mt-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-10 text-center">
+                        <a href="{% url 'user_profile' %}" class="btn btn-warning btn-lg px-4 mt-3">Go to Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+    {% else %}
+        <section>
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center" style="height: 100vh">
+                    <div class="col-sm-10 text-center">
+                        <h1 class="display-2 text-capitalize"><span class="text-warning">Data Entry </span><span class="text-white font-weight-bold">Welcome</span></h1>
+                        <h2 class="font-weight-light font-italic text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                        <a href="{% url 'login' %}" class="btn btn-warning btn-lg px-4 m-3">Click here to login</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}

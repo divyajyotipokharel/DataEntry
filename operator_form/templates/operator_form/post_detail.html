@@ -21,8 +21,100 @@
                         <a href="{% url 'post_remove' pk=post.pk %}" class="btn btn-primary">Remove</a>
                     {% endif %}
                 </div>
+                
+                <div class="m-5">
+                    <table>
+                        <tr>
+                            <td>Author</td>
+                            <td>{{ post.author }}</td>
+                        </tr>
+                        <tr>
+                            <td>File No</td>
+                            <td>{{ post.file_no }}</td>
+                        </tr>
+                        <tr>
+                            <td>Record No</td>
+                            <td>{{ post.record_no }}</td>
+                        </tr>
+                        <tr>
+                            <td>Entry Date</td>
+                            <td>{{ post.entry_date }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ref No</td>
+                            <td>{{ post.ref_no }}</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice No</td>
+                            <td>{{ post.invoice_no }}</td>
+                        </tr>
+                        <tr>
+                            <td>Courier Name</td>
+                            <td>{{ post.courier_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Con No</td>
+                            <td>{{ post.con_no }}</td>
+                        </tr>
+                        <tr>
+                            <td>Dispatch Date</td>
+                            <td>{{ post.dispatch_date }}</td>
+                        </tr>
+                        <tr>
+                            <td>Dispatch By</td>
+                            <td>{{ post.dispatch_by }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Date</td>
+                            <td>{{ post.sales_date }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Time</td>
+                            <td>{{ post.sales_time }}</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Name</td>
+                            <td>{{ post.customer_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Mail Address</td>
+                            <td>{{ post.mail_address }}</td>
+                        </tr>
+                        <tr>
+                            <td>Agent Name</td>
+                            <td>{{ post.agent_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{ post.address }}</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>{{ post.city }}</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>{{ post.state }}</td>
+                        </tr>
+                        <tr>
+                            <td>Zip Code</td>
+                            <td>{{ post.zip_code }}</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Phone</td>
+                            <td>{{ post.customer_phone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Card Type</td>
+                            <td>{{ post.credit_card_type }}</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Card Number</td>
+                            <td>{{ post.credit_card_number }}</td>
+                        </tr>
+                    </table>
+                </div>
 
-                <h1>{{ post.record_no }}</h1>
                 {% if post.published_date %}
                     <div>
                         {{ post.published_date }}

@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views
 from django.conf.urls import url, include
+from operator_form.views import Home
 
 urlpatterns = [
+    path('',Home.as_view(), name = 'home'),    
     path('admin/', admin.site.urls),
-    url(r'', include('operator_form.urls')),
+    path('operator/', include('operator_form.urls')),
+    path('administrator/', include('admin_form.urls')),
     url(r'^accounts/login/$', views.LoginView.as_view(), name='login'),
     url(r'^accounts/logout/$', views.LogoutView.as_view(), name='logout', kwargs={'next_page': 'login/'}),
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from datetime import datetime
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE)
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(default=datetime.now)
     published_date = models.DateTimeField(blank=True,null=True)
     file_no = models.CharField(max_length=400)
     record_no = models.CharField(max_length=400)
@@ -32,7 +32,7 @@ class Post(models.Model):
     credit_card_number = models.CharField(max_length=400)
 
     def publish(self):
-        self.published_date = timezone.now()
+        self.published_date = datetime.now()
         self.save()
 
     def get_absolute_url(self):

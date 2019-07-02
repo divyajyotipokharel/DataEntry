@@ -3,9 +3,8 @@ from operator_form import views
 
 urlpatterns = [
     path('',views.Home.as_view(), name = 'home'),
-    path('profile/',views.UserProfile.as_view(), name = 'user_profile'),
     path('about/',views.About.as_view(), name = 'about'),
-
+    path('profile/',views.UserProfile.as_view(), name = 'user_profile'),
     path('post/all',views.PostList.as_view(), name = 'post_list'),
     path('post/<int:pk>/',views.PostDetail.as_view(), name = 'post_detail'),
     path('post/new/',views.CreatePost.as_view(), name = 'post_new'),

@@ -1,0 +1,110 @@
+{% extends 'admin_form/a_base.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<!-- admin profile  -->
+<section class="mt-5">
+    <div class="container pt-5">
+        <!-- title -->
+        <!-- end of title -->
+        <div class="row">
+            <div class="col-sm-8 col-md-12 col-lg-12 bg-frame">
+                <!-- side bar -->
+                <div class="col-sm-6 col-md-3 col-lg-3 float-left pl-3 pr-0 text-center">
+                    <!-- image side -->
+                    <div class="team-member mb-0 px-5">
+                        <img class="mx-auto rounded-circle img-fluid" src="{% load static %}{% static 'images/team/1.jpg' %}" alt=""/>
+                        <h5 class="mt-3 font-weight-bold text-success" >{{user.username}}</h5>
+                    </div>
+                    <div class="bg-white round-box font-weight-bold mt-4">
+                        <h5 class="text-primary font-weight-bold pt-3">Total Accounts</h5>
+                        <h4 class="text-success font-weight-bold">{{ total_accounts }}</h4>
+                        <h5 class="text-primary font-weight-bold pt-3">Total Forms</h5>
+                        <h4 class="text-success font-weight-bold">{{ total_forms }}</h4>
+                        <h5 class="text-primary font-weight-bold pt-3">Active Users</h5>
+                        <h4 class="text-success font-weight-bold pb-3">{{total_actice_accounts}}</h4>
+                    </div>
+                    <div class="mt-5 pb-5">
+                        <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-plus"></i> Add Users</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-eye"></i> View Users</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-trash-alt"></i> Delete User</a></h5>
+                    </div>
+                </div>
+                <!-- end of side bar -->
+                <!-- main area -->
+                <div class="col-sm-6 col-md-8 col-lg-8 float-right text-left mt-5 py-0 pl-0">
+                    <div class="d-flex justify-content-end">
+                        <h4 class="btn btn-primary round-box mr-2">Active Users</h4>
+                        <h4 class="btn btn-primary round-box">Terminated Users</h4>
+                    </div>                   
+                    <div class="mt-4 px-3 pb-2">
+                        <h3 class="font-weight-bold">All Users</h3>
+                        {{test_list}}
+                        {% for users in object_list %}
+                        <li class="user">{{ users }}</li>
+                        {% endfor %}
+                        <h1>this is update All {{test}}</h1>
+                        <hr>
+                    </div>
+                    {% for users in object_list %}                    
+                    <!-- users in row view -->
+                    <div class="bg-white round-box pr-4 mt-3">
+                        <!-- users details list -->
+                            <div class="row justify-content-between pl-4">
+                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><i class="far fa-user-circle fa-3x"></i></div>
+                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a href="{% url 'view_operator_profile'%}?q={{users.id}}">{{users.id}}{{ users.username}}</a></h5></div>
+                                <div class="col-sm-auto p-0 d-flex align-items-center">
+                                    <!-- <div class="my-1 mx-0 p-0">
+                                        <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">1234</h5></div>
+                                        <div class="col d-flex p-0 justify-content-center"><p class="m-0">Total Forms</p></div>
+                                    </div> -->
+                                </div>
+                                <div class="col-sm-7 p-0 d-flex align-items-center justify-content-between">
+                                    <!-- <div class="my-1 p-0">
+                                        <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">{{total_user_forms}}</h5></div>
+                                        <div class="col d-flex p-0 justify-content-center"><p class="m-0">Total Forms</p></div>
+                                    </div> -->
+                                    <h4 class="btn btn-primary round-box mb-0">Terminate</h4>
+                                    <h4 class="btn btn-primary round-box mb-0">Edit Disabled</h4>
+                                    <h4 class="btn btn-primary round-box mb-0">Download</h4>
+                                </div>
+                            </div>
+                        <!-- end of user details list -->
+                    </div>
+                    <!-- end of user in row view -->
+                    {% endfor %}
+                </div>
+                <!-- end of main area -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of admin profile -->
+{% elif user.is_authenticated %}
+<!-- operator profile  -->
+<section class="mt-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 40vh">
+            <div class="col-sm-10 text-center">
+                <h2 class="font-weight-light text-danger">Wrong Place!</h2>
+                <h3 class="text-white">Go to Profile <a href="{% url 'user_profile' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">{{user.username}} </a>or<a href="{% url 'logout' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">Logout </a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of operator profile -->
+{% else %}
+<div class="text-white">
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
+                <div class="col-sm-10 text-center">
+                    <h1 class="display-2 text-capitalize"><span class="text-warning">Data Entry </span><span class="text-white font-weight-bold">Welcome</span></h1>
+                    <h2 class="font-weight-light font-italic text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                    <a href="{% url 'login' %}" class="btn btn-warning btn-lg px-4 m-3">Click here to login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endif %}
+{% endblock %}

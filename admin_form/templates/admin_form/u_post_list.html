@@ -1,25 +1,21 @@
-{% extends 'operator_form/base.html' %}
-
+{% extends 'admin_form/a_base.html' %}
 {% block content %}
-
+{% if user.is_superuser %}
+<!-- admin profile  -->
 <section class="mt-5">
     <div class="container pt-5">
         <!-- title -->
+        <!-- end of title -->
         <div class="row">
-            <div class="col text-center mb-3">
-                <h3 class="text-white display-5">List of Data Entry</h3>
-            </div>
-        </div>
-    </div>
-    <!-- end of title -->
-    <div class="row justify-content-center">
-        <div class="col-lg-9 col-sm-8 bg-frame">
-            <p>This is all contents in  not draft list</p>
-            {{object_list.count}}
-                
-
-            <!-- view the data in table form -->
-            <div class="table-responsive table-hover col-lg-11 mx-auto">
+            <div class="col-sm-10 col-md-12 col-lg-12 bg-frame">
+                <div class="col-sm-6 col-md-8 col-lg-8 text-left mt-5 py-0 pl-0">
+                    <div class="d-flex justify-content-end">
+                        <h4 class="btn btn-primary round-box mr-2">Search</h4>
+                        <h4 class="btn btn-primary round-box">Search</h4>
+                    </div>                 
+                </div>
+                <!-- view the data in table form -->
+                <div class="table-responsive table-hover mx-auto">
                     <table class="table bg-white">
                         <thead>
                             <tr>
@@ -76,23 +72,40 @@
                             {% endfor %}
                         </tbody>
                     </table>
-            </div>
-            <!-- end of table -->
-
-            <!-- post not in table -->
-            <!-- post in view only  -->
-            <!-- {% for post in post_list %}
-            <div>
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.record_no }}</a></h1>
-                <div>
-                    <p>Published on: {{post.published_date|date:"Y-m-d h:i:s A"}}</p>
                 </div>
+                <!-- end of table -->
             </div>
-            {% endfor %} -->
-            <!-- end of data view -->
-
+        </div>
+    </div>  
+</section>
+<!-- end of admin profile -->
+{% elif user.is_authenticated %}
+<!-- operator profile  -->
+<section class="mt-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 40vh">
+            <div class="col-sm-10 text-center">
+                <h2 class="font-weight-light text-danger">Wrong Place!</h2>
+                <h3 class="text-white">Go to Profile <a href="{% url 'user_profile' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">{{user.username}} </a>or<a href="{% url 'logout' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">Logout </a></h3>
+            </div>
         </div>
     </div>
 </section>
+<!-- end of operator profile -->
+{% else %}
+<div class="text-white">
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
+                <div class="col-sm-10 text-center">
+                    <h1 class="display-2 text-capitalize"><span class="text-warning">Data Entry </span><span class="text-white font-weight-bold">Welcome</span></h1>
+                    <h2 class="font-weight-light font-italic text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                    <a href="{% url 'login' %}" class="btn btn-warning btn-lg px-4 m-3">Click here to login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endif %}
 
 {% endblock %}
