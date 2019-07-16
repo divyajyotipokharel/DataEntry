@@ -46,7 +46,7 @@
                         <!-- users details list -->
                             <div class="row justify-content-between pl-4">
                                 <div class="col-sm-auto py-2 px-1 d-flex align-items-center justify-content-between"><i class="far fa-user-circle fa-3x"></i></div>
-                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a href="{% url 'view_operator_profile'%}?q={{users.id}}">{{users.id}} {{ users.username}}</a></h5></div>
+                                <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a class="text-decoration-none" href="{% url 'view_operator_profile' %}?q={{users.id}}">{{users.id}} {{ users.username}}</a></h5></div>
                                 <div class="col-sm-auto p-0 d-flex align-items-center">
                                     <!-- <div class="my-1 mx-0 p-0">
                                         <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">1234</h5></div>
@@ -60,7 +60,7 @@
                                     </div> -->
                                     <h4 class="btn btn-primary round-box mb-0">Terminate</h4>
                                     <h4 class="btn btn-primary round-box mb-0">Edit Disabled</h4>
-                                    <h4 class="btn btn-primary round-box mb-0">Download</h4>
+                                    <h4 class="btn btn-primary round-box mb-0"><a class="text-white text-decoration-none" href="{% url 'data_download' %}?q={{users.id}}">Download</a></h4>
                                 </div>
                             </div>
                         <!-- end of user details list -->

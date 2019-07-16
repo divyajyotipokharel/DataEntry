@@ -10,11 +10,17 @@
             <div class="col-sm-10 col-md-12 col-lg-12 bg-frame">
                 <div class="col-sm-6 col-md-8 col-lg-8 text-left mt-5 py-0 pl-0">
                     <div class="d-flex justify-content-end">
-                        <h4 class="btn btn-primary round-box mr-2">Search</h4>
-                        <h4 class="btn btn-primary round-box">Search</h4>
+                        <h4 class="btn btn-primary round-box mr-5">Search</h4>
+                        <!-- <h4 class="btn btn-primary round-box"><a class="text-white text-decoration-none" href="#">Download</a></h4> -->
                     </div>                 
                 </div>
                 <!-- view the data in table form -->
+                {% for post in post_list %}
+                    {% if forloop.first %}
+                    <h3 class="text-success py-2 px-5">Data of <span class="font-weight-bold">{{post.author}}</span></h3>
+                    {%endif%}
+                {% endfor %}
+
                 <div class="table-responsive table-hover mx-auto">
                     <table class="table bg-white">
                         <thead>
@@ -69,11 +75,13 @@
                                 <td>{{ post.credit_card_type }}</td>
                                 <td>{{ post.credit_card_number }}</td>
                             </tr>
+
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <!-- end of table -->
+
             </div>
         </div>
     </div>  
