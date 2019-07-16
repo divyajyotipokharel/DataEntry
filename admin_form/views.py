@@ -102,15 +102,9 @@ class UserParamDownload(ListView):
         return response
 
 
-
-
 # def display_data(self):
 #     # templet_name = 'admin_form/u_post_list.html'
 #     return redirect("admin_user_profile",str(print('how are you?')))
-    
-    
-    
-
 
 # class AdminUserData(ListView):
 #     template_name = 'admin_form/a_loggedin.html'
