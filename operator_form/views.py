@@ -11,6 +11,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView,ListView,
                                     DetailView,CreateView,UpdateView,DeleteView)
 
+
+from django.shortcuts import redirect
+@login_required
+# login in redirect options
+def login_success(request):
+    if request.user.is_superuser==True:
+        # user is an admin
+        return redirect("admin_user_profile")
+    else:
+        return redirect("user_profile")
+
 # Create your views here.
 class About(TemplateView):
     template_name = 'about.html'

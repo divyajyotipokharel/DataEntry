@@ -25,7 +25,7 @@ class Home(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class AdminUserProfile(TemplateView):
     template_name = 'admin_form/a_loggedin.html'
-    login_url = '/login/'
+    login_url = '/administrator/profile/'
 
     def get_context_data(self, **kwargs):
         context = super(AdminUserProfile, self).get_context_data(**kwargs)

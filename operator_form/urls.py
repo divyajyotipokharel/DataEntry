@@ -4,6 +4,7 @@ from operator_form import views
 urlpatterns = [
     path('',views.Home.as_view(), name = 'home'),
     path('about/',views.About.as_view(), name = 'about'),
+    path('login_success/',views.login_success, name = 'login_success'),    
     path('profile/',views.UserProfile.as_view(), name = 'user_profile'),
     path('post/all',views.PostList.as_view(), name = 'post_list'),
     path('post/<int:pk>/',views.PostDetail.as_view(), name = 'post_detail'),
