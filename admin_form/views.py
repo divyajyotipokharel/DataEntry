@@ -89,8 +89,10 @@ class UserParamDownload(ListView):
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="user_data.csv"'
+        writer = csv.writer(response)
+        writer.writerow(["author","published_date","file_no","record_no","entry_date","ref_no","invoice_no","courier_name","con_no","dispatch_date","dispatch_by","sales_date","sales_time","customer_name","mail_address","agent_name","address","city","state","zip_code","customer_phone","credit_card_type","credit_card_number"])
         for item in qf:
-                writer = csv.writer(response)
+                
                 writer.writerow([item.author,item.published_date,item.file_no,item.record_no,item.entry_date,item.ref_no,item.invoice_no,item.courier_name,item.con_no,item.dispatch_date,item.dispatch_by,item.sales_date,item.sales_time,item.customer_name,item.mail_address,item.agent_name,item.address,item.city,item.state,item.zip_code,item.customer_phone,item.credit_card_type,item.credit_card_number])
 
         return response
