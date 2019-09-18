@@ -97,6 +97,7 @@ class PostList(ListView):
     def get_queryset(self):
         return Post.objects.filter(
             Q(published_date__lte=timezone.now()) &
+            Q(published_date__gte=(timezone.now()-timedelta(9))) &
             Q(author=self.request.user)
         )
 

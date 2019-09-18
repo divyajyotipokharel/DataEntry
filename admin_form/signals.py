@@ -11,3 +11,4 @@ def on_user_logged_in(sender, **kwargs):
 @receiver(user_logged_out)
 def on_user_logged_out(sender, **kwargs):
     LoggedInUser.objects.filter(user=kwargs.get('user')).delete()
+

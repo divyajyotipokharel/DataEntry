@@ -24,7 +24,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'operator_form/templates/operator_form')
 SECRET_KEY = '=@wht%4u(@dz%+5*3ox&+0i9p78^51s7^+-=fetkl(m28p*2k9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'divyajyotipokharel.pythonanywhere.com',
@@ -136,3 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 LOGIN_REDIRECT_URL = 'login_success'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# session expires on browser close
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

@@ -1,0 +1,75 @@
+{% extends 'admin_form/a_base.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<!-- admin profile  -->
+<section class="mt-5">
+    <div class="container pt-5">
+        <!-- title -->
+        <!-- end of title -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-10 col-md-12 col-lg-12 bg-frame pb-5">
+                <div class="row">
+                    <div class="p-3 mr-auto">
+                        <h4>Admin Site</h4>
+                    </div>
+                    <div class="p-3 d-flex align-items-center">
+                        <h6>WELCOME, <span class="text-uppercase">{{ user }}</span> | <a class="text-decoration-none" href="{% url 'logout' %}">LogOut</a></h6>
+                    </div>
+                </div>
+                <div class="row bg-white">
+                    <div class="p-3 mr-auto"><h5>Select User to Change</h5></div>
+                    <div class="p-3 d-flex align-items-center"><span class=""><a href="#" class="text-default text-decoration-none">Add Users <i class="fas fa-plus"></i></a></span></div>
+                </div>
+                <div class="p-3">
+                    <form class="form-inline my-2 my-lg-0" method="GET">
+                        <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" value="{{ request.GET.q }}">
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+                    </form>
+                </div>
+            
+                <div class="col-sm-6 col-md-8 col-lg-8 text-left mt-5 py-0 pl-0">
+                    <div class="d-flex justify-content-end">
+                        <h4 class="btn btn-primary round-box mr-5">Search</h4>
+                        <h4>This is the user page</h4>
+                    </div>
+                                     
+                </div>
+                <!-- view the data in table form -->
+                
+                <!-- end of table -->
+
+            </div>
+        </div>
+    </div>  
+</section>
+<!-- end of admin profile -->
+{% elif user.is_authenticated %}
+<!-- operator profile  -->
+<section class="mt-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 40vh">
+            <div class="col-sm-10 text-center">
+                <h2 class="font-weight-light text-danger">Wrong Place!</h2>
+                <h3 class="text-white">Go to Profile <a href="{% url 'user_profile' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">{{user.username}} </a>or<a href="{% url 'logout' %}" class="btn btn-sm btn-warning btn-lg px-4 m-3">Logout </a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of operator profile -->
+{% else %}
+<div class="text-white">
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
+                <div class="col-sm-10 text-center">
+                    <h1 class="display-2 text-capitalize"><span class="text-warning">Data Entry </span><span class="text-white font-weight-bold">Welcome</span></h1>
+                    <h2 class="font-weight-light font-italic text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                    <a href="{% url 'login' %}" class="btn btn-warning btn-lg px-4 m-3">Click here to login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endif %}
+
+{% endblock %}

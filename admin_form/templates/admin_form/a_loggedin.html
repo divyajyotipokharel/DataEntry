@@ -25,7 +25,7 @@
                     </div>
                     <div class="mt-5 pb-5">
                         <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-plus"></i> Add Users</a></h5>
-                        <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-eye"></i> View Users</a></h5>
+                        <h5 class="font-weight-bold mt-3"><a href="{% url 'users_profile' %}" class="text-default text-decoration-none"><i class="fas fa-eye"></i> View Users</a></h5>
                         <h5 class="font-weight-bold mt-3"><a href="#" class="text-default text-decoration-none"><i class="fas fa-trash-alt"></i> Delete User</a></h5>
                     </div>
                 </div>
@@ -33,14 +33,15 @@
                 <!-- main area -->
                 <div class="col-sm-6 col-md-8 col-lg-8 float-right text-left mt-5 py-0 pl-0">
                     <div class="d-flex justify-content-end">
-                        <h4 class="btn btn-primary round-box mr-2">Active Users</h4>
-                        <h4 class="btn btn-primary round-box">Terminated Users</h4>
+                        <!-- <h4 class="btn btn-primary round-box mr-2">Active Users</h4>
+                        <h4 class="btn btn-primary round-box">Terminated Users</h4> -->
                     </div>                   
                     <div class="mt-4 px-3 pb-2">
                         <h3 class="font-weight-bold">All Users</h3>
                         
                     </div>
-                    {% for users in object_list %}                    
+                    {% for users in object_list %}
+                    {% if users.is_active %}                    
                     <!-- users in row view -->
                     <div class="bg-white round-box pr-4 mt-3">
                         <!-- users details list -->
@@ -49,8 +50,8 @@
                                 <div class="col-sm-auto p-0 d-flex align-items-center justify-content-between"><h5 class="font-weight-bold m-0"><a class="text-decoration-none" href="{% url 'view_operator_profile' %}?q={{users.id}}">{{users.id}} {{ users.username}}</a></h5></div>
                                 <div class="col-sm-auto p-0 d-flex align-items-center">
                                     <!-- <div class="my-1 mx-0 p-0">
-                                        <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">1234</h5></div>
-                                        <div class="col d-flex p-0 justify-content-center"><p class="m-0">Total Forms</p></div>
+                                        <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">{{ total_user_forms_count }}</h5></div>
+                                        <div class="col d-flex p-0 justify-content-center"><p class="m-0">Forms</p></div>
                                     </div> -->
                                 </div>
                                 <div class="col-sm-7 p-0 d-flex align-items-center justify-content-between">
@@ -58,13 +59,14 @@
                                         <div class="col d-flex p-0 justify-content-center"><h5 class="font-weight-bold text-danger m-0">{{total_user_forms}}</h5></div>
                                         <div class="col d-flex p-0 justify-content-center"><p class="m-0">Total Forms</p></div>
                                     </div> -->
-                                    <h4 class="btn btn-primary round-box mb-0">Terminate</h4>
-                                    <h4 class="btn btn-primary round-box mb-0">Edit Disabled</h4>
+                                    <!-- <h4 class="btn btn-primary round-box mb-0">Terminate</h4>
+                                    <h4 class="btn btn-primary round-box mb-0">Edit Disabled</h4> -->
                                     <h4 class="btn btn-primary round-box mb-0"><a class="text-white text-decoration-none" href="{% url 'data_download' %}?q={{users.id}}">Download</a></h4>
                                 </div>
                             </div>
                         <!-- end of user details list -->
                     </div>
+                    {% endif %}
                     <!-- end of user in row view -->
                     {% endfor %}
                 </div>
