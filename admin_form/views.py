@@ -87,8 +87,10 @@ class UserParamDownload(ListView):
             Q(published_date__gte=(timezone.now()-timedelta(9))) &
             Q(author = request.GET.get('q','')))
 
+        user = request.GET.get('q','')
+
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="user_data.csv"'
+        response['Content-Disposition'] = 'attachment; filename="user_data'+str(user)+'.csv"'
         writer = csv.writer(response)
         writer.writerow(["author","published_date","file_no","record_no","entry_date","ref_no","invoice_no","courier_name","con_no","dispatch_date","dispatch_by","sales_date","sales_time","customer_name","mail_address","agent_name","address","city","state","zip_code","customer_phone","credit_card_type","credit_card_number"])
         for item in qf:
